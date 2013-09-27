@@ -2,7 +2,7 @@ D.statistic.plotting.large.gamma <- function(distribution="normal",max.sample.si
   
   #Let gamma = m / m+n
   #This function simulates pvalues from the K.statistic function for
-  #gamma values of 0.1, 0.25 and 0.5
+  #gamma values of 0.5, 0.75 and 0.9
   gamma1 = 0.5
   gamma2 = 0.75
   gamma3 = 0.9
