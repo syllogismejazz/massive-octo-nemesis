@@ -43,13 +43,12 @@ D.statistic.plotting.all.gamma <- function(distribution="normal",max.sample.size
   }
   
   
-  color.vector = #rainbow(5)
-    gray.colors(5, start = 0, end = 0.6, gamma = 2.2)
+  color.vector = gray.colors(5, start = 0, end = 0.4, gamma = 2.2)
   
   if(distribution=="normal"){ 
-    plot(m.vector, D.vector.gamma1, xlab="m (first sample size)", ylab="D Statistic",main="D-Statistics each for 2000 pvalues (mv N(0,1))", sub="(c_N1=0.1 and c_N2=0.1)", lty=1, col=color.vector[1], type="l")
+    plot(m.vector, D.vector.gamma1, ylim=c(0, 0.5), xlab="m (first sample size)", ylab="D Statistic",main="D-Statistics each for 2000 pvalues (mv N(0,1))", sub="(c_N1=0.1 and c_N2=0.9)", lty=1, col=color.vector[1], type="l")
   }else if(distribution=="student"){
-    plot(m.vector, D.vector.gamma1, xlab="m (first sample size)", ylab="D Statistic",main="D-Statistics each for 2000 pvalues (mv t, df=4)", sub="(c_N1=0.1 and c_N2=0.1)", lty=1, col=color.vector[1], type="l")
+    plot(m.vector, D.vector.gamma1, ylim=c(0, 0.5), xlab="m (first sample size)", ylab="D Statistic",main="D-Statistics each for 2000 pvalues (mv t, df=4)", sub="(c_N1=0.1 and c_N2=0.9)", lty=1, col=color.vector[1], type="l")
     
   }else return("Not a valid distribution")
   
@@ -59,7 +58,6 @@ D.statistic.plotting.all.gamma <- function(distribution="normal",max.sample.size
   lines(m.vector,D.vector.gamma5, lty=5, col=color.vector[5])
   
   legend("topright", legend=c("= 0.1","= 0.25", "= 0.5", "= 0.75", "= 0.9"),lty=1:5, col=color.vector, bty="n")
-  #legend("top", legend=c("c_N1 = 0.5","c_N2 = 0.5"))
   
   #return()
 }
