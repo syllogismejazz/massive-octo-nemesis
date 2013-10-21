@@ -1,4 +1,4 @@
-random.normal.bivariate.laplace <- function(n=1){
+random.standard.bivariate.laplace <- function(n=1){
 
 #Method from Solaro 2004, applied here for kappa=1, hence Laplace
 #In short, returning n samples from Y ~ MEP_2 (zero.vector, identity, 1)
