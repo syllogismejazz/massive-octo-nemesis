@@ -58,7 +58,7 @@ color.vector = gray.colors(5, start = 0, end = 0.4, gamma = 2.2)
   }else if(distribution=="student"){
     plot(m.vector, size.vector.gamma1, ylim=c(0, 0.10), xlab="m (first sample size)", ylab="Size (at alpha=0.05)",main="Sizes each for 2000 pvalues (mv t, df=4)", sub="(c_N1=0.1 and c_N2=0.1)", lty=1, col=color.vector[1], type="l")
   }else if(distribution=="laplace"){
-    plot(m.vector, size.vector.gamma1, ylim=c(0, 0.10), xlab="m (first sample size)", ylab="Size (at alpah=0.05)",main="Sizes each for 2000 pvalues (mv laplace)", sub="(c_N1=0.1 and c_N2=0.1)", lty=1, col=color.vector[1], type="l")
+    plot(m.vector, size.vector.gamma1, ylim=c(0, 0.10), xlab="m (first sample size)", ylab="Size (at alpah=0.05)",main="Sizes each for 2000 pvalues (mv laplace)", sub="(c_N1=0.1 and c_N2=0.9)", lty=1, col=color.vector[1], type="l")
     
   }else return("Not a valid distribution")
   
