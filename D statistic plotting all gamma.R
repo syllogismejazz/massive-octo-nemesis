@@ -38,6 +38,14 @@ D.statistic.plotting.all.gamma <- function(distribution="normal",max.sample.size
     p.values.for.gamma3 = lapply(m.vector, sampling.pvalues.from.laplace.standard.normal, gamma=gamma3, repeats=nb.of.pvalues.each, c_N1=c_N1, c_N2=c_N2)  
     p.values.for.gamma4 = lapply(m.vector, sampling.pvalues.from.laplace.standard.normal, gamma=gamma4, repeats=nb.of.pvalues.each, c_N1=c_N1, c_N2=c_N2)
     p.values.for.gamma5 = lapply(m.vector, sampling.pvalues.from.laplace.standard.normal, gamma=gamma5, repeats=nb.of.pvalues.each, c_N1=c_N1, c_N2=c_N2)
+  }else if(distribution=="kappa4"){
+    #sampling pvalues from appropriate distribution nb.of.pvalues.each times per sample size
+    p.values.for.gamma1 = lapply(m.vector, sampling.pvalues.from.kappa4.standard.normal, gamma=gamma1, repeats=nb.of.pvalues.each, c_N1=c_N1, c_N2=c_N2)
+    p.values.for.gamma2 = lapply(m.vector, sampling.pvalues.from.kappa4.standard.normal, gamma=gamma2, repeats=nb.of.pvalues.each, c_N1=c_N1, c_N2=c_N2)
+    p.values.for.gamma3 = lapply(m.vector, sampling.pvalues.from.kappa4.standard.normal, gamma=gamma3, repeats=nb.of.pvalues.each, c_N1=c_N1, c_N2=c_N2)  
+    p.values.for.gamma4 = lapply(m.vector, sampling.pvalues.from.kappa4.standard.normal, gamma=gamma4, repeats=nb.of.pvalues.each, c_N1=c_N1, c_N2=c_N2)
+    p.values.for.gamma5 = lapply(m.vector, sampling.pvalues.from.kappa4.standard.normal, gamma=gamma5, repeats=nb.of.pvalues.each, c_N1=c_N1, c_N2=c_N2)
+    
   }else return("Not a valid distribution.")
   
   
@@ -57,7 +65,10 @@ D.statistic.plotting.all.gamma <- function(distribution="normal",max.sample.size
   }else if(distribution=="student"){
     plot(m.vector, D.vector.gamma1, ylim=c(0, 0.5), xlab="m (first sample size)", ylab="D Statistic",main="D-Statistics each for 2000 pvalues (mv t, df=4)", sub="(c_N1=0.1 and c_N2=0.1)", lty=1, col=color.vector[1], type="l")
   }else if(distribution=="laplace"){
-    plot(m.vector, D.vector.gamma1, ylim=c(0, 0.5), xlab="m (first sample size)", ylab="D Statistic",main="D-Statistics each for 2000 pvalues (mv laplace)", sub="(c_N1=0.1 and c_N2=0.9)", lty=1, col=color.vector[1], type="l")
+    plot(m.vector, D.vector.gamma1, ylim=c(0, 0.5), xlab="m (first sample size)", ylab="D Statistic",main="D-Statistics each for 2000 pvalues (mv laplace)", sub="(c_N1=0.1 and c_N2=0.1)", lty=1, col=color.vector[1], type="l")
+  }else if(distribution=="kappa4"){
+    plot(m.vector, D.vector.gamma1, ylim=c(0, 0.5), xlab="m (first sample size)", ylab="D Statistic",main="D-Statistics each for 2000 pvalues (MEP; kappa=4)", sub="(c_N1=0.1 and c_N2=0.9)", lty=1, col=color.vector[1], type="l")
+    
     
   }else return("Not a valid distribution")
   
