@@ -1,7 +1,7 @@
 random.standard.bivariate.laplace <- function(N=1){
 
 #Method from Solaro 2004, applied here for kappa=1, hence Laplace
-#In short, returning n samples from Y ~ MEP_2 (zero.vector, identity, 1)
+#In short, returning n samples from Y ~ MEP_2 (zero.vector, identity, kappa=1)
 
 n=2 #Fixed bivariate generator
 k=1 #Fixed Kappa parament (ie k=1 means Laplace)
