@@ -1,8 +1,10 @@
+#Counter Verified by Gilles on November 14 2013. All good.
+
 K.statistic <- function(first.bivariate.sample, second.bivariate.sample, c_N1, c_N2){
 
 #Get length of both samples (m and n) then add to get N=m+n
-n <- dim(first.bivariate.sample)[1]
-m <- dim(second.bivariate.sample)[1]
+m <- dim(first.bivariate.sample)[1]
+n <- dim(second.bivariate.sample)[1]
 N = m + n
 
 #Get the "global" sample vector (concatenate first and second)	
@@ -63,8 +65,8 @@ T_N = c(T_N1, T_N2)
 
 #Expectation and Variance UNDER H_null of T_N1 and T_N2
 mu_N = 0
-mu_N[1] = ((m*N+m)/12)*((6-5*c_N1)*N-c_N1)
-mu_N[2] = ((m*N+m)/12)*((6-5*c_N2)*N-c_N2)
+mu_N[1] = ((m*(N+1))/12)*((6-5*c_N1)*N-c_N1)
+mu_N[2] = ((m*(N+1))/12)*((6-5*c_N2)*N-c_N2)
 
 first.row = 0
 second.row = 0
@@ -83,7 +85,7 @@ K_N = t(T_N - mu_N) %*% sigma_N_inv %*% (T_N - mu_N)
 p_value = 1 - pchisq(K_N, 2)
 
 Labels = c("First Sample Size:", "Second Sample Size:","Global Sample Size:","K_N Statistic:", "P-Value")
-Data = c(n,m, N, K_N, p_value)
+Data = c(m,n, N, K_N, p_value)
 summary_matrix=t(rbind(Labels, Data))
 
 return(list(K_Statistic=K_N, p_value=p_value, summary=summary_matrix))
